@@ -15,6 +15,7 @@ namespace wario.playermovement
 
         [SerializeField]
         private float _speed = 3f;
+
         [SerializeField]
         private float _maxRadiansDelta = 10f;
 
@@ -36,17 +37,17 @@ namespace wario.playermovement
         {
             Translate();
 
-            if (_maxRadiansDelta > 0f && LookDirection != Vector3.zero) ;
+            if (_maxRadiansDelta > 0f && LookDirection != Vector3.zero)
             Rotate();
+        }
+        public void IncreaseSpeed()
+        {
+            _speed += _accelerationSpeed;
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _speed += _accelerationSpeed;
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                _speed /= 2f;
-            }
+        public void DecreaseSpeed()
+        {
+            _speed /= 2f;
         }
         private void Translate()
         {

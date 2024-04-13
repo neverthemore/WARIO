@@ -45,9 +45,9 @@ namespace wario.shooting
             var position = _weapon.transform.position;
             var radius = _weapon.ShootRadius;
             var mask = LayerUtils.EnemyMask;           
-            var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, mask);           
+            var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, mask);
 
-            if (size > 0 && size > 0);
+            if (size > 1) ;
             {
                 for (int i = 0; i < size; i++)
                 {

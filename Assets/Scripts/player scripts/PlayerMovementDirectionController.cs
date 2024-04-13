@@ -9,10 +9,13 @@ namespace wario.playermovement
         private UnityEngine.Camera _camera;
         public Vector3 MovementDirection { get; private set; }
 
+        private PlayerMovement _playerMovement;
 
         protected  void Awake()
         {
             _camera = UnityEngine.Camera.main;
+
+            _playerMovement = GetComponent<PlayerMovement>();
         }
 
 
@@ -27,6 +30,15 @@ namespace wario.playermovement
            direction.y = 0;
 
             MovementDirection = direction.normalized;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _playerMovement.IncreaseSpeed();
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _playerMovement.DecreaseSpeed();
+            }
 
         }    
 
